@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Employee Data Management</title>
+  <title>Train Scheduler</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!--Add favicon-->
-  <link rel="shortcut icon" type="image/png" href="assets/Images/favicon.png">
-  <!-- reset for browser optimization -->
+  <!-- reset -->
   <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-  <!-- local styesheet -->
+  <!-- local stylesheet -->
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
   <!-- bootstrap cdn -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <!-- very important for modal works -->
+  <!-- JS and jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- momentjs -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js" integrity="sha256-1hjUhpc44NwiNg8OwMu2QzJXhD8kcj+sJA3aCQZoUjg=" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -22,45 +20,44 @@
 <div id="wrap">
 
 <div class="jumbotron text-center">
-  <h1>Employee Data Management</h1>
-  <h4>A Comprehensive Directory of Employee Billable Hours</h4>
+  <h1>Train Scheduler</h1>
+  <h4>Find out when the next train comes</h4>
   <div id="clockbox"></div>
 </div>
 
 <div class="panel panel-primary">
-  <div class="panel-heading">Current Employees</div>
+  <div class="panel-heading">Current Train Schedule</div>
     <table class="table">
       <thead>
       <tr>
-        <td>Employee Name</td>
-        <td>Role</td>
-        <td>Start date</td>
-        <td>Month worked</td>
-        <td>Monthly rate$</td>
-        <td>Total billed$</td>
+        <td>Train Name</td>
+        <td>Destination</td>
+        <td>Frequency (min)</td>
+        <td>Next Arrival</td>
+        <td>Minutes Away</td>
       </tr>
       </thead>
-      <tbody class="tableTrain" id="EmpAddRow"></tbody>
+      <tbody class="tableTrain"></tbody>
     </table>
 </div> <!-- end of panel -->
 
 <div class="panel panel-primary">
-  <div class="panel-heading">Add Employee</div>
+  <div class="panel-heading">Add Train</div>
   <form>
   <div class="form-group">
-    <label for="">Employee Name</label>
+    <label for="">Train Name</label>
     <input type="text" class="form-control" id="trainName" required>
   </div>
   <div class="form-group">
-    <label for="">Role</label>
+    <label for="">Destination</label>
     <input type="text" class="form-control" id="destination" required>
   </div>
   <div class="form-group">
-    <label for="">Start date (DD/MM/YY - ex: 01/01/88)</label>
+    <label for="">First Train Time (HH:mm) Military Time</label>
     <input type="text" class="form-control" id="firstTrain" required>
   </div>
   <div class="form-group">
-    <label for="">Monthly rate$</label>
+    <label for="">Frequency (min)</label>
     <input type="text" class="form-control" id="frequency" required>
   </div>
   <div class="form-group">
@@ -72,7 +69,7 @@
 </div> <!-- end of wrap -->
 <div id="footer">
   <div class="container">
-    <p class="text-center copyright">@ Copyright 2017 Artem Tregubchak</p>
+    <p class="text-center copyright">@ Copyright 2017 Grant Chan</p>
   </div>
 </div>
   <!-- Firebase Reference -->
@@ -80,12 +77,12 @@
   <script>
   // Initialize Firebase
   var config = {
-    apiKey: "AIzaSyBDfm57e0WJt3twJMPpkvVwg8-v8p7AS28",
-    authDomain: "wednesday-class.firebaseapp.com",
-    databaseURL: "https://wednesday-class.firebaseio.com",
-    projectId: "wednesday-class",
-    storageBucket: "wednesday-class.appspot.com",
-    messagingSenderId: "22729468629"
+     apiKey: "AIzaSyD0oOnt5PLKkweVR9Kb4DJfHU9u6v1pB04",
+    authDomain: "train-scheduler-41f9d.firebaseapp.com",
+    databaseURL: "https://train-scheduler-41f9d.firebaseio.com",
+    projectId: "train-scheduler-41f9d",
+    storageBucket: "",
+    messagingSenderId: "293533282812"
   };
   firebase.initializeApp(config);
   // addEntry();
@@ -108,7 +105,7 @@
   // }
   </script>
   <!-- local javascript file -->
-  <script type="text/javascript" src="assets/Javascript/TS.js"></script>
+  <script type="text/javascript" src="assets/Javascript/trainschedule.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
 </body>
 </html>
