@@ -26,7 +26,6 @@ $("#addTrain").on("click", function(event) {
  dateAdded: firebase.database.ServerValue.TIMESTAMP
   }
 
-  dataRef.ref()
 
   //push new train object to firebase
   database.ref().push(newTrain);
@@ -48,7 +47,7 @@ database.ref().on("child_added", function(childSnapshot) {
   Frequency = childSnapshot.val().freq;
   MinutesAway = ArrivingIn();
   TimeNextArrival = moment().add(MinutesAway, "minutes").format("HH:mm");
-  console.log(moment(TimeNextArrival).format("HH:mm"));
+  // console.log(moment(TimeNextArrival).format("HH:mm"));
 
 $('.tableTrain').append("<tr><td>" + TrainName + "</td><td>" + Destination + "</td><td>" + Frequency + "</td><td>" + TimeNextArrival + "</td><td>" + MinutesAway + "</td></tr>");
 
